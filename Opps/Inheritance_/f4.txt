@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+
+class Main{
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        //case 4
+
+        C Obj = new P();  // compile-time error 
+        System.out.println(Obj.d);
+        System.out.println(Obj.d1);
+        System.out.println(Obj.d2);
+        Obj.fun();
+        Obj.fun2();
+        Obj.fun2();
+    }
+
+    static class P{
+        int d = 1;
+        int d1 = 1;
+
+        void fun(){
+            System.out.println("P's fun");
+        }
+
+        void fun1(){
+            System.out.println("P's fun1");
+        }
+    }
+
+    static class C extends P{
+        int d = 1;
+        int d2 = 1;
+
+        void fun(){
+            System.out.println("C's fun");
+        }
+
+        void fun2(){
+            System.out.println("C's fun2");
+        }
+    }
+}

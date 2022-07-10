@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+class Main{
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        Student s = new Student(10,"A");
+    }
+
+    static class Student{
+        //during space allocation all data member are set to java given default values
+        //parsing sets data members to class creater's defaults (e.g. maxxScore and schoolName here growthmultiple in ArrayList)
+
+        int age ;
+        String name ;
+        String schoolName = "DAV";
+        int maxxScore = 100;
+        DBConnection dbconnection;
+        Directory studentFolder;
+
+        //for class creator to initialize data member which are dynamic e.g. reading from a file or a dbconnection
+        Student(){
+            dbconnection = new DBConnection("<ip address>");
+            studentFolder = File.read("..");
+        }
+
+        //for class user to set values to data members
+        Student(int age, String name){
+            this();      //construction changing
+            this.age = age;
+            this.name = name;
+        }
+    }
+}
